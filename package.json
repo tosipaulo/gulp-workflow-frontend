@@ -1,0 +1,28 @@
+{
+  "name": "gulp-workflow-frontend",
+  "version": "1.0.0",
+  "description": "Deixando alguns plugins para agilizar desenvolvimento front-end",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tosipaulo/gulp-workflow-frontend.git"
+  },
+  "author": "Paulo Tosi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tosipaulo/gulp-workflow-frontend/issues"
+  },
+  "homepage": "https://github.com/tosipaulo/gulp-workflow-frontend#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-csso": "^2.0.0",
+    "gulp-if": "^2.0.1",
+    "gulp-sass": "^2.3.2",
+    "wiredep": "^4.0.0",
+    "yargs": "^4.8.0"
+  }
+}
