@@ -1,10 +1,13 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var csso = require('gulp-csso');
-var wiredep = require('wiredep').stream;
-var gulpif = require('gulp-if');
-var concat = require('gulp-concat');
-var groupConcat = require('gulp-group-concat');
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    csso = require('gulp-csso'),
+    wiredep = require('wiredep').stream,
+    gulpif = require('gulp-if'),
+    concat = require('gulp-concat'),
+    useref = require('gulp-useref'),
+    uglify = require('gulp-uglify'),
+    minifyCss = require('gulp-minify-css'),
+    htmlmin = require('gulp-htmlmin');
 
 var args = require('yargs')
     .default('production', false)
@@ -33,3 +36,12 @@ gulp.task('concat', function(){
     .pipe(concat('main.js'))
     .pipe(gulp.dest('js'))
 })
+
+
+gulp.task('build', function () {
+    return gulp.src('*.html')
+        .pipe(useref())
+        .pipe(gulpif('*.js', uglify()))
+        .pipe(gulpif('*.css', minifyCss()))
+        .pipe(gulp.dest('dist'));
+});
